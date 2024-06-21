@@ -1,4 +1,5 @@
 import "./App.css";
+import TaskColumn from "./components/TaskColumn";
 import TaskForm from "./components/TaskForm";
 
 function App() {
@@ -6,9 +7,9 @@ function App() {
     <div className="app">
       <TaskForm />
       <main className="app_main">
-        <section className="task_column">섹션 1</section>
-        <section className="task_column">섹션 2</section>
-        <section className="task_column">섹션 3</section>
+        <TaskColumn />
+        <TaskColumn />
+        <TaskColumn />
       </main>
     </div>
   );
