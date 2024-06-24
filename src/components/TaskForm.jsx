@@ -16,10 +16,12 @@ export default function TaskForm({ setTasks }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault(); //submit 이벤트 중지
+    console.log("새 할일 저장!");
     setTasks((prev) => {
       return [...prev, taskData];
     });
   };
+
   const selectTag = (tag) => {
     //이미 태그가 있는 경우 => 삭제 , 없는경우 => 추가
     if (taskData.tags.some((item) => item === tag)) {

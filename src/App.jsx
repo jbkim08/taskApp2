@@ -15,9 +15,14 @@ function App() {
     <div className="app">
       <TaskForm setTasks={setTasks} />
       <main className="app_main">
-        <TaskColumn title="할 일" icon={todoIcon} />
-        <TaskColumn title="진행중" icon={doingIcon} />
-        <TaskColumn title="완 료" icon={doneIcon} />
+        <TaskColumn title="할 일" icon={todoIcon} tasks={tasks} status="todo" />
+        <TaskColumn
+          title="진행중"
+          icon={doingIcon}
+          tasks={tasks}
+          status="doing"
+        />
+        <TaskColumn title="완 료" icon={doneIcon} tasks={tasks} status="done" />
       </main>
     </div>
   );
