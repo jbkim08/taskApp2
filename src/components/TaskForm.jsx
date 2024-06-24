@@ -19,8 +19,20 @@ export default function TaskForm() {
     console.log(taskData);
   };
   const selectTag = (tag) => {
-    console.log(tag);
+    //이미 태그가 있는 경우 => 삭제 , 없는경우 => 추가
+    if (taskData.tags.some((item) => item === tag)) {
+      const filterTags = taskData.tags.filter((item) => item !== tag); //같은 태그 삭제
+      setTaskData((prev) => {
+        return { ...prev, tags: filterTags };
+      });
+    } else {
+      setTaskData((prev) => {
+        return { ...prev, tags: [...prev.tags, tag] };
+      });
+    }
   };
+
+  console.log(taskData.tags);
   return (
     <header className="app_header">
       <form onSubmit={handleSubmit}>
