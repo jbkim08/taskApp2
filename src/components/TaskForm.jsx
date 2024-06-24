@@ -16,9 +16,15 @@ export default function TaskForm({ setTasks }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault(); //submit 이벤트 중지
-    console.log("새 할일 저장!");
+    //console.log("새 할일 저장!");
     setTasks((prev) => {
       return [...prev, taskData];
+    });
+    //저장후 리셋
+    setTaskData({
+      task: "",
+      status: "todo",
+      tags: [],
     });
   };
 
