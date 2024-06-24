@@ -6,6 +6,7 @@ export default function TaskForm() {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
+    tags: [],
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,10 +14,12 @@ export default function TaskForm() {
       return { ...prev, [name]: value };
     });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault(); //submit 이벤트 중지
     console.log(taskData);
+  };
+  const selectTag = (tag) => {
+    console.log(tag);
   };
   return (
     <header className="app_header">
@@ -32,10 +35,10 @@ export default function TaskForm() {
 
         <div className="task_form_bottom_line">
           <div>
-            <Tag tagName="HTML" />
-            <Tag tagName="CSS" />
-            <Tag tagName="JavaScript" />
-            <Tag tagName="REACT" />
+            <Tag tagName="HTML" selectTag={selectTag} />
+            <Tag tagName="CSS" selectTag={selectTag} />
+            <Tag tagName="JavaScript" selectTag={selectTag} />
+            <Tag tagName="REACT" selectTag={selectTag} />
           </div>
 
           <div>
