@@ -33,6 +33,10 @@ export default function TaskForm() {
   };
 
   console.log(taskData.tags);
+  //선택된 태그아이템중 tag가 있으면 true 없으면 false
+  const checkTag = (tag) => {
+    return taskData.tags.some((item) => item === tag);
+  };
   return (
     <header className="app_header">
       <form onSubmit={handleSubmit}>
@@ -47,10 +51,27 @@ export default function TaskForm() {
 
         <div className="task_form_bottom_line">
           <div>
-            <Tag tagName="HTML" selectTag={selectTag} />
-            <Tag tagName="CSS" selectTag={selectTag} />
-            <Tag tagName="JavaScript" selectTag={selectTag} />
-            <Tag tagName="REACT" selectTag={selectTag} />
+            {/* selected에는 true(태그배열에 각태그 이름이 있으면) 없으면 false로 전달됨 */}
+            <Tag
+              tagName="HTML"
+              selectTag={selectTag}
+              selected={checkTag("HTML")}
+            />
+            <Tag
+              tagName="CSS"
+              selectTag={selectTag}
+              selected={checkTag("CSS")}
+            />
+            <Tag
+              tagName="JavaScript"
+              selectTag={selectTag}
+              selected={checkTag("JavaScript")}
+            />
+            <Tag
+              tagName="REACT"
+              selectTag={selectTag}
+              selected={checkTag("REACT")}
+            />
           </div>
 
           <div>
