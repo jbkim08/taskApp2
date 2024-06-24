@@ -11,6 +11,7 @@ export default function Tag({ tagName, selectTag, selected }) {
   };
   return (
     <button
+      type="button"
       className="tag"
       onClick={() => selectTag(tagName)}
       style={selected ? tagStyle[tagName] : tagStyle.default}
